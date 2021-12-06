@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary shadow fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Z1 OTHER</a>
+        <a class="navbar-brand" href="#">Fathir.inc</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,6 +34,10 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="btn btn-danger tombol" href="#">Join Me</a>
             </li>
           </ul>
         </div>
@@ -91,7 +95,7 @@
             <h2>Projects</h2>
           </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center text-center">
           <div class="col-md-4 mb-3">
             <div class="card">
               <img src="img/1 (1).jpg" class="card-img-top" alt="projects1" />
@@ -154,18 +158,18 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-6">
-            <form>
+            <form name="'contact-form'">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" />
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="nama" />
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="email" />
+                <input type="email" class="form-control" id="email" aria-describedby="email" name="email" />
               </div>
               <div class="mb-3">
                 <label for="pesan" class="form-label">Pesan</label>
-                <textarea class="form-control" id="pesan" rows="3"></textarea>
+                <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
               </div>
               <button type="submit" class="btn btn-danger">Kirim</button>
             </form>
@@ -189,5 +193,17 @@
     <!-- Akhir footer-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbwOEAReSyUWd410OeBJzpwpBflwjp8Y2g9xGa78jvhs_yYNoYV80-9X8V6oIzVHymDL/exec";
+      const form = document.forms["contact-form"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => console.log("Success!", response))
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
   </body>
 </html>

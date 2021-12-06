@@ -11,6 +11,7 @@ section {
   padding-top: 5rem;
 }
 
-.card-text a {
-  text-decoration: none;
+.tombol {
+  text-transform: uppercase;
+  border-radius: 20px;
 }
